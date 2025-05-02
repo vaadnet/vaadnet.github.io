@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #38B449;    /* Green from logo */
+            --secondary: #30B8C4;  /* Teal from logo */
+            --accent: #E73A95;     /* Pink from logo */
+            --accent2: #F7941D;    /* Orange from logo */
+            --light: #f8f8f8;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
+            background-size: 300% 300%;
+            animation: gradient 8s ease infinite;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background-color: white;
+            color: var(--accent);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/api/placeholder/1200/600') no-repeat center;
+            background-size: cover;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-cta {
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
+            background-size: 300% 300%;
+            color: white;
+            font-size: 18px;
+            padding: 15px 30px;
+            animation: gradient 5s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        
+        .pain-points {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pain-point {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .pain-point:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pain-point i {
+            font-size: 50px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .pain-point h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card i {
+            font-size: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Advantages Section */
+        .advantages {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .advantage-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .advantage-icon {
+            font-size: 30px;
+            color: white;
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
+            background-size: 300% 300%;
+            animation: gradient 5s ease infinite;
+            border-radius: 50%;
+            margin-left: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .advantage-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
+            background-size: 300% 300%;
+            animation: gradient 8s ease infinite;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-white {
+            background-color: white;
+            color: var(--primary);
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 0 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-method {
+            flex: 1;
+            max-width: 300px;
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-method i {
+            font-size: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        .contact-method h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .contact-method p {
+            font-size: 18px;
+        }
+        
+        .contact-method a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+            
+            .contact-method {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48c3R5bGU+LnN0MHtmaWxsOiMzOEI0NDk7fS5zdDF7ZmlsbDojMzBCOEM0O30uc3Qye2ZpbGw6I0U3M0E5NTt9LnN0M3tmaWxsOiNGNzk0MUQ7fS5zdDR7ZmlsbDojMDAwMDAwO30uc3Q1e2ZpbGw6IzUzNTM1Mzt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTAgNjVMODAgMTYwTDExMCAxMDBMODAgNDBMNTAgNjV6Ii8+PHBhdGggY2xhc3M9InN0MSIgZD0iTTEwMCA0MEwxMzAgMTAwTDE2MCA2MEwxMzAgMzBMMTAwIDQweiIvPjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMzAgMTAwTDE1MCAxNjBMMTgwIDEwMEwxNjAgNjBMMTMwIDEwMHoiLz48cGF0aCBjbGFzcz0ic3QzIiBkPSJNMTgwIDEwMEwyMTAgMTYwTDIwMCA0MEwxODAgMTAweiIvPjxwYXRoIGNsYXNzPSJzdDQiIGQ9Ik03MCAxODBIMTgwVjIwMEg3MFYxODB6Ii8+PHRleHQgeD0iODUiIHk9IjE5NSIgY2xhc3M9InN0NSIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbDsgZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjRweDsiPteV16LXky7Xpteo</dGV4dD48L3N2Zz4=" alt="ועד.נט לוגו" style="width: 100px; height: 100px;">
+            </div>
+            <button class="cta-button">צור קשר עכשיו <i class="fas fa-arrow-left"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>נמאס לכם מכאב הראש בניהול ועד הבית?</h1>
+            <p>מיזם חדש ופורץ דרך בתחום ניהול בתים משותפים באמצעות וועדי בתים מקצועיים</p>
+            <button class="cta-button hero-cta">קבלו הצעת ניהול בהתאמה אישית <i class="fas fa-file-signature"></i></button>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">למה צריך ועד.נט?</h2>
+            <p style="text-align: center; font-size: 20px; margin-bottom: 30px;">רוב הדיירים לא רוצים להתעסק בניהול ועד הבית - אנחנו כאן כדי לפתור לכם את הבעיה!</p>
+            
+            <div class="pain-points">
+                <div class="pain-point">
+                    <i class="fas fa-clock"></i>
+                    <h3>חוסר זמן</h3>
+                    <p>ניהול ועד הבית דורש זמן רב - פגישות, תיאומים, מעקב אחר תשלומים, והתמודדות עם בעיות שוטפות.</p>
+                </div>
+                <div class="pain-point">
+                    <i class="fas fa-book"></i>
+                    <h3>חוסר ידע</h3>
+                    <p>חוקים, תקנות, וניהול כספים דורשים ידע מקצועי שלרוב הדיירים אין את הזמן ללמוד.</p>
+                </div>
+                <div class="pain-point">
+                    <i class="fas fa-users"></i>
+                    <h3>עימותים עם שכנים</h3>
+                    <p>התמודדות עם סרבני תשלום וסכסוכי שכנים יכולה להיות מתישה ולפגוע ביחסי השכנות.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">הייחודיות שלנו</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>ניהול חוקי ומקצועי</h3>
+                    <p>ניהול ועד הבית באופן חוקי ומקצועי וללא מאמץ מצדכם.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>התנהלות משפטית מלאה</h3>
+                    <p>טיפול בסרבני תשלום, מכתבי התראה ותביעות משפטיות נגד סרבני תשלום.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>ניסיון מוכח</h3>
+                    <p>קבלת בניינים לניהול בצו שיפוטי, ניהול שיפוץ מבנים ומבנים מסוכנים, עבודה מול רשויות.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>שקיפות מלאה</h3>
+                    <p>ניהול תקציב, דו"חות תקופתיים, קבלות ושיתוף בהסכמי התקשרות טרם ביצוע עבודות.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-home"></i>
+                    <h3>שיפור איכות החיים</h3>
+                    <p>תחזוקה, שדרוגים וניהול פרויקטים בסטנדרט גבוה.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>ניסיון רחב באזור המרכז</h3>
+                    <p>ניהול בניינים מצפון תל אביב ועד רחובות, ניסיון בניהול פרויקטים של שיפוץ בניינים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">היתרון היחסי שלנו מול חברות אחזקה</h2>
+            
+            <div class="advantages-list">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>אנחנו מחליפות את ועד הבית</h3>
+                        <p>לא עוד עימותים בין שכנים או חוסר שקיפות בניהול הכספים או ניהול לקוי.</p>
+                    </div>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>ניהול משפטי מלא</h3>
+                        <p>טיפול מקצועי מול סרבני תשלום, כולל הגשת תביעות כספיות נגד סרבני תשלום, כולל התנהלות מול חברות ממשלתיות.</p>
+                    </div>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>ניסיון כמגשרות</h3>
+                        <p>מסייע לכם ליישב מחלוקות ולנהל סכסוכי שכנים בצורה יעילה.</p>
+                    </div>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>שירות מקצועי ושקוף</h3>
+                        <p>ניהול תקציב, תשלומים, דוחו"ת כספיים וכל מה שהבניין שלכם צריך - בלי הפתעות!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
+            <p>מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית ומשתלמת!</p>
+            <button class="cta-button cta-white">צרו קשר עכשיו <i class="fas fa-headset"></i></button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">צרו קשר</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">ניהול הבניין שלכם יהיה בידיים טובות</p>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>טלפון</h3>
+                    <p>רונית: <a href="tel:0505838797">050-5838797</a></p>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>אימייל</h3>
+                    <p><a href="mailto:vaadnetwork@gmail.com">vaadnetwork@gmail.com</a></p>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>אזור שירות</h3>
+                    <p>אזור המרכז - מצפון תל אביב ועד רחובות</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">ועד.נט</div>
+            
+            <div class="footer-links">
+                <a href="#">דף הבית</a>
+                <a href="#">אודות</a>
+                <a href="#">שירותים</a>
+                <a href="#">צור קשר</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p>&copy; 2025 ועד.נט - כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // CTA buttons behavior
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const contactSection = document.querySelector('.contact');
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
