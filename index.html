@@ -561,6 +561,13 @@
                     <p>אזור המרכז - מצפון תל אביב ועד רחובות</p>
                 </div>
             </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/972505838797" target="_blank" class="cta-button" style="display: inline-flex; background-color: #25D366; color: white;">
+                    <i class="fab fa-whatsapp" style="font-size: 24px; margin-left: 10px;"></i>
+                    שלחו הודעת וואטסאפ
+                </a>
+            </div>
         </div>
     </section>
 
@@ -570,16 +577,16 @@
             <div class="footer-logo">ועד.נט</div>
             
             <div class="footer-links">
-                <a href="#">דף הבית</a>
-                <a href="#">אודות</a>
-                <a href="#">שירותים</a>
-                <a href="#">צור קשר</a>
+                <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
+                <a href="#" onclick="scrollToSection('problem')">אודות</a>
+                <a href="#" onclick="scrollToSection('features')">שירותים</a>
+                <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
             </div>
             
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/vaadnet" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/vaadnet" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/972505838797" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             
             <p>&copy; 2025 ועד.נט - כל הזכויות שמורות.</p>
@@ -604,6 +611,15 @@
                 contactSection.scrollIntoView({ behavior: 'smooth' });
             });
         });
+        
+        // Function to scroll to sections
+        function scrollToSection(sectionId) {
+            const section = document.querySelector('.' + sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            return false;
+        }
     </script>
 </body>
 </html>
