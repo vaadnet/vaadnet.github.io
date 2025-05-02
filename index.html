@@ -1,4 +1,67 @@
-.advantage-icon {
+/* Additional decorative elements */
+        .overlay-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(var(--primary) 1px, transparent 1px), 
+                radial-gradient(var(--secondary) 1px, transparent 1px);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+        }
+        
+        .geometric-shape {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .shape-circle {
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .shape-square {
+            transform: rotate(45deg);
+            background: var(--secondary);
+        }
+        
+        .shape-triangle {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 180px solid var(--accent);
+        }        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(135deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%) -10px 0,
+                linear-gradient(225deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%) -10px 0,
+                linear-gradient(315deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%),
+                linear-gradient(45deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%);
+            background-size: 20px 20px;
+        }    <section class="cta-section">
+        <div class="section-decoration top"></div>
+        <div class="container">
+            <h2>רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
+            <p>מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית ומשתלמת!</p>
+            <div style="display: flex; justify-content: center;">
+                <button class="cta-button cta-white" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D', '_blank')">צרו קשר עכשיו <i class="fas fa-headset"></i></button>
+            </div>
+        </div>
+        <div class="section-decoration bottom"></div>
+    </section>        .advantage-icon {
             font-size: 28px;
             color: white;
             min-width: 64px;
@@ -18,7 +81,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
-    <link rel="stylesheet" href="Picture1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -43,7 +106,12 @@
             background-color: white;
             color: var(--text);
             line-height: 1.6;
-            background: var(--light) var(--bg-pattern);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
         
         .container {
@@ -58,8 +126,11 @@
             color: white;
             padding: 20px 0;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
-            position: relative;
-            z-index: 10;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
         
         header:before {
@@ -137,14 +208,12 @@
             width: 100%;
         }
         
-        /* Hero Section */
         .hero {
-            padding: 120px 0;
+            padding: 180px 0 140px;
             text-align: center;
-            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1556912173-3bb406ef7e8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80') no-repeat center;
-            background-size: cover;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
+            background-color: rgba(255, 255, 255, 0.7);
+            margin-top: 0;
         }
         
         .hero:before {
@@ -157,6 +226,16 @@
             background: var(--bg-pattern);
             opacity: 0.03;
             z-index: 0;
+        }
+        
+        .hero:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
         }
         
         .hero .container {
@@ -200,6 +279,7 @@
             font-size: 18px;
             padding: 16px 32px;
             box-shadow: 0 6px 15px rgba(138, 90, 131, 0.25);
+            margin: 0 auto;
         }
         
         .hero-cta:hover {
@@ -210,22 +290,20 @@
         
         /* Problem Section */
         .problem {
-            padding: 100px 0;
-            background-color: white;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 120px 0;
+            background-color: rgba(255, 255, 255, 0.8);
             position: relative;
+            z-index: 1;
         }
         
-        .problem:before {
+        .problem:after {
             content: "";
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: var(--bg-pattern);
-            opacity: 0.03;
-            z-index: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
         
         .problem .container {
@@ -309,21 +387,19 @@
         /* Features Section */
         .features {
             padding: 120px 0;
-            background-color: #f9f9f9;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.9);
             position: relative;
+            z-index: 1;
         }
         
-        .features:before {
+        .features:after {
             content: "";
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: var(--bg-pattern);
-            opacity: 0.03;
-            z-index: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
         }
         
         .features .container {
@@ -395,22 +471,19 @@
         /* Advantages Section */
         .advantages {
             padding: 120px 0;
-            background-color: white;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.8);
             position: relative;
+            z-index: 1;
         }
         
-        .advantages:before {
+        .advantages:after {
             content: "";
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: var(--bg-pattern);
-            opacity: 0.03;
-            z-index: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
         }
         
         .advantages .container {
@@ -491,7 +564,7 @@
             width: 100%;
             height: 100%;
             background: url('https://images.unsplash.com/photo-1552034452-d9b0d28b2822?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80') center/cover;
-            opacity: 0.07;
+            opacity: 0.1;
             z-index: 0;
         }
         
@@ -502,7 +575,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-pattern);
+            background-image: 
+                linear-gradient(30deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
+                linear-gradient(150deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
+                linear-gradient(30deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
+                linear-gradient(150deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
+                linear-gradient(60deg, rgba(0, 0, 0, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08)),
+                linear-gradient(60deg, rgba(0, 0, 0, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08));
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
             opacity: 0.05;
             z-index: 0;
         }
@@ -543,21 +624,19 @@
         /* Contact Section */
         .contact {
             padding: 120px 0;
-            background-color: #f9f9f9;
+            background-color: rgba(255, 255, 255, 0.9);
             position: relative;
-            overflow: hidden;
+            z-index: 1;
         }
         
-        .contact:before {
+        .contact:after {
             content: "";
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: var(--bg-pattern);
-            opacity: 0.03;
-            z-index: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
         
         .contact .container {
@@ -692,6 +771,7 @@
             display: flex;
             gap: 40px;
             margin-bottom: 35px;
+            justify-content: center;
         }
         
         .footer-links a {
@@ -844,26 +924,28 @@
             <div class="nav-links">
                 <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
                 <a href="#" onclick="scrollToSection('problem')">אודות</a>
-                <a href="#" onclick="scrollToSection('features')">שירותים</a>
                 <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
             </div>
             <button class="cta-button">צור קשר עכשיו <i class="fas fa-arrow-left"></i></button>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
+        <div class="section-decoration top"></div>
         <div class="container">
             <h1>נמאס לכם מכאב הראש בניהול ועד הבית?</h1>
             <p>מיזם חדש ופורץ דרך בתחום ניהול בתים משותפים באמצעות וועדי בתים מקצועיים</p>
-            <button class="cta-button hero-cta">קבלו הצעת ניהול בהתאמה אישית <i class="fas fa-file-signature"></i></button>
+            <div style="display: flex; justify-content: center; margin-top: 50px;">
+                <button class="cta-button hero-cta">קבלו הצעת ניהול בהתאמה אישית <i class="fas fa-file-signature"></i></button>
+            </div>
         </div>
+        <div class="section-decoration bottom"></div>
     </section>
 
-    <!-- Problem Section -->
     <section class="problem">
+        <div class="section-decoration top"></div>
         <div class="container">
-            <h2 class="section-title">למה צריך את ועד.נט?</h2>
+            <h2 class="section-title">למה צריך ועד.נט?</h2>
             <p style="text-align: center; font-size: 20px; margin-bottom: 30px;">רוב הדיירים לא רוצים להתעסק בניהול ועד הבית - אנחנו כאן כדי לפתור לכם את הבעיה!</p>
             
             <div class="pain-points">
@@ -884,10 +966,11 @@
                 </div>
             </div>
         </div>
+        <div class="section-decoration bottom"></div>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
+        <div class="section-decoration top"></div>
         <div class="container">
             <h2 class="section-title">הייחודיות שלנו</h2>
             <div class="features-grid">
@@ -923,10 +1006,11 @@
                 </div>
             </div>
         </div>
+        <div class="section-decoration bottom"></div>
     </section>
 
-    <!-- Advantages Section -->
     <section class="advantages">
+        <div class="section-decoration top"></div>
         <div class="container">
             <h2 class="section-title">היתרון היחסי שלנו מול חברות אחזקה</h2>
             
@@ -972,6 +1056,7 @@
                 </div>
             </div>
         </div>
+        <div class="section-decoration bottom"></div>
     </section>
 
     <!-- CTA Section -->
@@ -983,8 +1068,8 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact">
+        <div class="section-decoration top"></div>
         <div class="container">
             <h2 class="section-title">צרו קשר</h2>
             <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">ניהול הבניין שלכם יהיה בידיים טובות</p>
@@ -1009,13 +1094,14 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 50px;">
+            <div style="display: flex; justify-content: center; margin-top: 50px;">
                 <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="cta-button" style="display: inline-flex; background: linear-gradient(90deg, #25D366, #128C7E); color: white; margin: 0 auto; padding: 18px 36px; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); border-radius: 30px;">
                     <i class="fab fa-whatsapp" style="font-size: 24px; margin-left: 15px;"></i>
                     שלחו הודעת וואטסאפ
                 </a>
             </div>
         </div>
+        <div class="section-decoration bottom"></div>
     </section>
 
     <!-- Footer -->
@@ -1026,7 +1112,6 @@
             <div class="footer-links">
                 <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
                 <a href="#" onclick="scrollToSection('problem')">אודות</a>
-                <a href="#" onclick="scrollToSection('features')">שירותים</a>
                 <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
             </div>
             
@@ -1053,10 +1138,12 @@
         
         // CTA buttons behavior
         document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const contactSection = document.querySelector('.contact');
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            });
+            if(!button.getAttribute('onclick')) {  // Skip buttons with onclick attribute
+                button.addEventListener('click', function() {
+                    const contactSection = document.querySelector('.contact');
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
         });
         
         // Function to scroll to sections
@@ -1067,6 +1154,39 @@
             }
             return false;
         }
+        
+        // Add a subtle parallax effect on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            
+            // Add slight parallax effect to the background
+            document.body.style.backgroundPosition = 'center ' + (scrollPosition * 0.1) + 'px';
+            
+            // Add subtle animations on scroll
+            const elements = document.querySelectorAll('.feature-card, .pain-point, .advantage-item, .contact-method');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Initialize elements with initial state
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.feature-card, .pain-point, .advantage-item, .contact-method');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Trigger scroll event to initialize visible elements
+            window.dispatchEvent(new Event('scroll'));
+        });
     </script>
 </body>
 </html>
