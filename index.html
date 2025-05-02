@@ -1,4 +1,43 @@
-/* Additional decorative elements */
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c6e49;    /* Soft forest green */
+            --secondary: #4c956c;  /* Lighter green */
+            --accent: #8a5a83;     /* Muted purple */
+            --accent2: #d68c45;    /* Soft orange */
+            --light: #f6f6f6;
+            --dark: #2a2a2a;
+            --text: #414141;
+            --bg-pattern: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Heebo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: var(--text);
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Additional decorative elements */
         .overlay-pattern {
             position: fixed;
             top: 0;
@@ -37,7 +76,9 @@
             border-left: 100px solid transparent;
             border-right: 100px solid transparent;
             border-bottom: 180px solid var(--accent);
-        }        body:before {
+        }
+        
+        body:before {
             content: "";
             position: fixed;
             top: 0;
@@ -51,67 +92,6 @@
                 linear-gradient(315deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%),
                 linear-gradient(45deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%);
             background-size: 20px 20px;
-        }    <section class="cta-section">
-        <div class="section-decoration top"></div>
-        <div class="container">
-            <h2>רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
-            <p>מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית ומשתלמת!</p>
-            <div style="display: flex; justify-content: center;">
-                <button class="cta-button cta-white" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D', '_blank')">צרו קשר עכשיו <i class="fas fa-headset"></i></button>
-            </div>
-        </div>
-        <div class="section-decoration bottom"></div>
-    </section>        .advantage-icon {
-            font-size: 28px;
-            color: white;
-            min-width: 64px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            margin-left: 25px;
-            box-shadow: 0 6px 15px rgba(44, 110, 73, 0.2);
-        }
-        
-        .advantage-content h3<!DOCTYPE html>
-<html dir="rtl" lang="he">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2c6e49;    /* Soft forest green */
-            --secondary: #4c956c;  /* Lighter green */
-            --accent: #8a5a83;     /* Muted purple */
-            --accent2: #d68c45;    /* Soft orange */
-            --light: #f6f6f6;
-            --dark: #2a2a2a;
-            --text: #414141;
-            --bg-pattern: url('https://www.transparenttextures.com/patterns/cubes.png');
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Heebo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: white;
-            color: var(--text);
-            line-height: 1.6;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
-                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
         }
         
         .container {
@@ -528,10 +508,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary), #2da83e);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             margin-left: 25px;
-            box-shadow: 0 6px 15px rgba(56, 180, 73, 0.2);
+            box-shadow: 0 6px 15px rgba(44, 110, 73, 0.2);
         }
         
         .advantage-content h3 {
@@ -539,10 +519,6 @@
             margin-bottom: 12px;
             color: #333;
             font-weight: 600;
-        } {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--primary);
         }
         
         /* CTA Section */
@@ -686,9 +662,6 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
             margin-bottom: 20px;
             display: inline-block;
         }
@@ -919,14 +892,14 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/logo.png" alt="ועד.נט לוגו">
+                <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/Picture1.png" alt="ועד.נט לוגו">
             </div>
             <div class="nav-links">
                 <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
                 <a href="#" onclick="scrollToSection('problem')">אודות</a>
                 <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
             </div>
-            <button class="cta-button">צור קשר עכשיו <i class="fas fa-arrow-left"></i></button>
+            <button class="cta-button" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D', '_blank')">צרו קשר עכשיו <i class="fas fa-arrow-left"></i></button>
         </div>
     </header>
 
