@@ -1,343 +1,1072 @@
-<!DOCTYPE html>
+.advantage-icon {
+            font-size: 28px;
+            color: white;
+            min-width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin-left: 25px;
+            box-shadow: 0 6px 15px rgba(44, 110, 73, 0.2);
+        }
+        
+        .advantage-content h3<!DOCTYPE html>
 <html dir="rtl" lang="he">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ועד.נט - ניהול בתים משותפים</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    :root {
-      --primary: #6A9EB9;
-      --secondary: #A3C6C4;
-      --accent: #B48EAD;
-      --accent2: #D8B4A0;
-      --light: #f4f4f4;
-      --dark: #2f2f2f;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to bottom, #fdfdfd, #f0f4f8);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 20px 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo img {
-      width: 90px;
-      height: auto;
-    }
-
-    .cta-button {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 14px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cta-button:hover {
-      background-color: #547a90;
-      transform: translateY(-2px);
-    }
-
-    .hero {
-      padding: 100px 0;
-      text-align: center;
-      background: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
-        url('https://images.unsplash.com/photo-1591696205602-2a94d8ff40c6?auto=format&fit=crop&w=1650&q=80') no-repeat center;
-      background-size: cover;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #444;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-
-    .section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: var(--primary);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      width: 60px;
-      height: 4px;
-      background-color: var(--accent);
-      display: block;
-      margin: 10px auto 0;
-      border-radius: 5px;
-    }
-
-    .features-grid, .pain-points {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .feature, .pain-point {
-      background-color: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      text-align: center;
-    }
-
-    .feature i, .pain-point i {
-      font-size: 40px;
-      color: var(--primary);
-      margin-bottom: 15px;
-    }
-
-    .feature h3, .pain-point h3 {
-      font-size: 20px;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .feature p, .pain-point p {
-      font-size: 16px;
-      color: #555;
-    }
-
-    .cta-section {
-      background: var(--accent);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-      position: relative;
-    }
-
-    .cta-section h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .cta-section p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .cta-section .cta-button {
-      background-color: white;
-      color: var(--accent);
-    }
-
-    .cta-section .cta-button:hover {
-      background-color: var(--light);
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 40px auto 0;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
-
-    .contact-form label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .contact-form button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .contact-form button:hover {
-      background: #547a90;
-    }
-
-    footer {
-      background-color: #222;
-      color: #eee;
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    footer a {
-      color: #ccc;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: var(--accent);
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-      .hero p,
-      .cta-section p {
-        font-size: 16px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
+    <link rel="stylesheet" href="Picture1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c6e49;    /* Soft forest green */
+            --secondary: #4c956c;  /* Lighter green */
+            --accent: #8a5a83;     /* Muted purple */
+            --accent2: #d68c45;    /* Soft orange */
+            --light: #f6f6f6;
+            --dark: #2a2a2a;
+            --text: #414141;
+            --bg-pattern: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Heebo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--light) var(--bg-pattern);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+        
+        header:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 100px; 
+            height: auto;
+            margin-left: 10px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background-color: white;
+            color: var(--primary);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-button:hover:before {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1556912173-3bb406ef7e8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80') no-repeat center;
+            background-size: cover;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .hero:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .hero h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .hero-cta {
+            background: linear-gradient(90deg, var(--accent), #795378);
+            color: white;
+            font-size: 18px;
+            padding: 16px 32px;
+            box-shadow: 0 6px 15px rgba(138, 90, 131, 0.25);
+        }
+        
+        .hero-cta:hover {
+            background: linear-gradient(90deg, #795378, var(--accent));
+            box-shadow: 0 8px 20px rgba(138, 90, 131, 0.35);
+            transform: translateY(-3px);
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 100px 0;
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .problem:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .problem .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pain-points {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pain-point {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pain-point:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+        }
+        
+        .pain-point:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pain-point i {
+            font-size: 54px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .pain-point h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .features:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .features .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .feature-card:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-card:hover:before {
+            opacity: 1;
+        }
+        
+        .feature-card i {
+            font-size: 46px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        /* Advantages Section */
+        .advantages {
+            padding: 120px 0;
+            background-color: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .advantages:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .advantages .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .advantage-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 35px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .advantage-item:before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .advantage-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .advantage-icon {
+            font-size: 28px;
+            color: white;
+            min-width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), #2da83e);
+            border-radius: 50%;
+            margin-left: 25px;
+            box-shadow: 0 6px 15px rgba(56, 180, 73, 0.2);
+        }
+        
+        .advantage-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #333;
+            font-weight: 600;
+        } {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent), #6e4968);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        }
+        
+        .cta-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1552034452-d9b0d28b2822?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80') center/cover;
+            opacity: 0.07;
+            z-index: 0;
+        }
+        
+        .cta-section:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-white {
+            background-color: white;
+            color: var(--accent);
+            font-size: 18px;
+            padding: 16px 32px;
+            margin: 0 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border-radius: 30px;
+        }
+        
+        .cta-white:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .contact .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-method {
+            flex: 1;
+            max-width: 300px;
+            text-align: center;
+            padding: 45px 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-method:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-method i {
+            font-size: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .contact-method h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .contact-method p {
+            font-size: 18px;
+            color: #555;
+        }
+        
+        .contact-method a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-method a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1d1d1d;
+            color: #fff;
+            padding: 70px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-pattern);
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-logo:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 35px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 17px;
+            position: relative;
+        }
+        
+        .footer-links a:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-links a:hover:after {
+            width: 100%;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-links a:hover:before {
+            opacity: 1;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: white;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            .nav-links {
+                margin: 10px 0 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+            
+            .contact-method {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container header-content">
-      <div class="logo">
-        <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/logo.png" alt="ועד.נט">
-      </div>
-      <button class="cta-button">צור קשר <i class="fas fa-arrow-left"></i></button>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container">
-      <h1>נמאס לכם מכאב הראש בניהול ועד הבית?</h1>
-      <p>מיזם חדש ופורץ דרך בתחום ניהול בתים משותפים באמצעות וועדי בתים מקצועיים</p>
-      <button class="cta-button">קבלו הצעה אישית <i class="fas fa-file-signature"></i></button>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">למה צריך ועד.נט?</h2>
-      <div class="pain-points">
-        <div class="pain-point">
-          <i class="fas fa-clock"></i>
-          <h3>חוסר זמן</h3>
-          <p>ניהול ועד הבית דורש זמן רב - פגישות, תיאומים, מעקב אחר תשלומים, והתמודדות עם בעיות שוטפות.</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/logo.png" alt="ועד.נט לוגו">
+            </div>
+            <div class="nav-links">
+                <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
+                <a href="#" onclick="scrollToSection('problem')">אודות</a>
+                <a href="#" onclick="scrollToSection('features')">שירותים</a>
+                <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
+            </div>
+            <button class="cta-button">צור קשר עכשיו <i class="fas fa-arrow-left"></i></button>
         </div>
-        <div class="pain-point">
-          <i class="fas fa-book"></i>
-          <h3>חוסר ידע</h3>
-          <p>חוקים, תקנות, וניהול כספים דורשים ידע מקצועי שלרוב הדיירים אין את הזמן ללמוד.</p>
-        </div>
-        <div class="pain-point">
-          <i class="fas fa-users"></i>
-          <h3>עימותים עם שכנים</h3>
-          <p>התמודדות עם סרבני תשלום וסכסוכי שכנים יכולה להיות מתישה ולפגוע ביחסי השכנות.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">הייחודיות שלנו</h2>
-      <div class="features-grid">
-        <div class="feature">
-          <i class="fas fa-balance-scale"></i>
-          <h3>ניהול חוקי ומקצועי</h3>
-          <p>ניהול ועד הבית באופן חוקי ומקצועי וללא מאמץ מצדכם.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>נמאס לכם מכאב הראש בניהול ועד הבית?</h1>
+            <p>מיזם חדש ופורץ דרך בתחום ניהול בתים משותפים באמצעות וועדי בתים מקצועיים</p>
+            <button class="cta-button hero-cta">קבלו הצעת ניהול בהתאמה אישית <i class="fas fa-file-signature"></i></button>
         </div>
-        <div class="feature">
-          <i class="fas fa-gavel"></i>
-          <h3>התנהלות משפטית מלאה</h3>
-          <p>טיפול בסרבני תשלום, מכתבי התראה ותביעות משפטיות.</p>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">למה צריך את ועד.נט?</h2>
+            <p style="text-align: center; font-size: 20px; margin-bottom: 30px;">רוב הדיירים לא רוצים להתעסק בניהול ועד הבית - אנחנו כאן כדי לפתור לכם את הבעיה!</p>
+            
+            <div class="pain-points">
+                <div class="pain-point">
+                    <i class="fas fa-clock"></i>
+                    <h3>חוסר זמן</h3>
+                    <p>ניהול ועד הבית דורש זמן רב - פגישות, תיאומים, מעקב אחר תשלומים, והתמודדות עם בעיות שוטפות.</p>
+                </div>
+                <div class="pain-point">
+                    <i class="fas fa-book"></i>
+                    <h3>חוסר ידע</h3>
+                    <p>חוקים, תקנות, וניהול כספים דורשים ידע מקצועי שלרוב הדיירים אין את הזמן ללמוד.</p>
+                </div>
+                <div class="pain-point">
+                    <i class="fas fa-users"></i>
+                    <h3>עימותים עם שכנים</h3>
+                    <p>התמודדות עם סרבני תשלום וסכסוכי שכנים יכולה להיות מתישה ולפגוע ביחסי השכנות.</p>
+                </div>
+            </div>
         </div>
-        <div class="feature">
-          <i class="fas fa-medal"></i>
-          <h3>ניסיון מוכח</h3>
-          <p>קבלת בניינים לניהול בצו שיפוטי, עבודה מול רשויות.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">הייחודיות שלנו</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>ניהול חוקי ומקצועי</h3>
+                    <p>ניהול ועד הבית באופן חוקי ומקצועי וללא מאמץ מצדכם.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>התנהלות משפטית מלאה</h3>
+                    <p>טיפול בסרבני תשלום, מכתבי התראה ותביעות משפטיות נגד סרבני תשלום.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>ניסיון מוכח</h3>
+                    <p>קבלת בניינים לניהול בצו שיפוטי, ניהול שיפוץ מבנים ומבנים מסוכנים, עבודה מול רשויות.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>שקיפות מלאה</h3>
+                    <p>ניהול תקציב, דו"חות תקופתיים, קבלות ושיתוף בהסכמי התקשרות טרם ביצוע עבודות.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-home"></i>
+                    <h3>שיפור איכות החיים</h3>
+                    <p>תחזוקה, שדרוגים וניהול פרויקטים בסטנדרט גבוה.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>ניסיון רחב באזור המרכז</h3>
+                    <p>ניהול בניינים מצפון תל אביב ועד רחובות, ניסיון בניהול פרויקטים של שיפוץ בניינים.</p>
+                </div>
+            </div>
         </div>
-        <div class="feature">
-          <i class="fas fa-search-dollar"></i>
-          <h3>שקיפות מלאה</h3>
-          <p>דו"חות תקופתיים, קבלות והסכמי התקשרות.</p>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">היתרון היחסי שלנו מול חברות אחזקה</h2>
+            
+            <div class="advantages-list">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>אנחנו מחליפות את ועד הבית</h3>
+                        <p>לא עוד עימותים בין שכנים או חוסר שקיפות בניהול הכספים או ניהול לקוי.</p>
+                    </div>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>ניהול משפטי מלא</h3>
+                        <p>טיפול מקצועי מול סרבני תשלום, כולל הגשת תביעות כספיות נגד סרבני תשלום, כולל התנהלות מול חברות ממשלתיות.</p>
+                    </div>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>ניסיון כמגשרות</h3>
+                        <p>מסייע לכם ליישב מחלוקות ולנהל סכסוכי שכנים בצורה יעילה.</p>
+                    </div>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>שירות מקצועי ושקוף</h3>
+                        <p>ניהול תקציב, תשלומים, דוחו"ת כספיים וכל מה שהבניין שלכם צריך - בלי הפתעות!</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="cta-section">
-    <div class="container">
-      <h2>רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
-      <p>מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית</p>
-      <form class="contact-form">
-        <label for="name">שם מלא</label>
-        <input type="text" id="name" name="name" placeholder="הקלידו את שמכם" required />
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
+            <p>מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית ומשתלמת!</p>
+            <button class="cta-button cta-white" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D', '_blank')">צרו קשר עכשיו <i class="fas fa-headset"></i></button>
+        </div>
+    </section>
 
-        <label for="email">אימייל</label>
-        <input type="email" id="email" name="email" placeholder="example@email.com" required />
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">צרו קשר</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">ניהול הבניין שלכם יהיה בידיים טובות</p>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>טלפון</h3>
+                    <p>רונית: <a href="tel:0505838797">050-5838797</a></p>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>אימייל</h3>
+                    <p><a href="mailto:vaadnetwork@gmail.com">vaadnetwork@gmail.com</a></p>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>אזור שירות</h3>
+                    <p>אזור המרכז - מצפון תל אביב ועד רחובות</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="cta-button" style="display: inline-flex; background: linear-gradient(90deg, #25D366, #128C7E); color: white; margin: 0 auto; padding: 18px 36px; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); border-radius: 30px;">
+                    <i class="fab fa-whatsapp" style="font-size: 24px; margin-left: 15px;"></i>
+                    שלחו הודעת וואטסאפ
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <label for="message">הודעה</label>
-        <textarea id="message" name="message" rows="4" placeholder="פרטו את הבקשה שלכם" required></textarea>
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">ועד.נט</div>
+            
+            <div class="footer-links">
+                <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
+                <a href="#" onclick="scrollToSection('problem')">אודות</a>
+                <a href="#" onclick="scrollToSection('features')">שירותים</a>
+                <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/vaadnet" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/vaadnet" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p>&copy; 2025 ועד.נט - כל הזכויות שמורות.</p>
+        </div>
+    </footer>
 
-        <button type="submit">שליחה</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 ועד.נט - כל הזכויות שמורות.</p>
-    <div>
-      <a href="#">דף הבית</a> |
-      <a href="#">שירותים</a> |
-      <a href="#">צור קשר</a>
-    </div>
-  </footer>
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // CTA buttons behavior
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const contactSection = document.querySelector('.contact');
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Function to scroll to sections
+        function scrollToSection(sectionId) {
+            const section = document.querySelector('.' + sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            return false;
+        }
+    </script>
 </body>
 </html>
