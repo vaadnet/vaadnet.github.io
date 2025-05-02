@@ -36,9 +36,7 @@
         
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
-            background-size: 300% 300%;
-            animation: gradient 8s ease infinite;
+            background: var(--primary); /* Solid color instead of gradient */
             color: white;
             padding: 20px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -56,8 +54,8 @@
         }
         
         .logo img {
-            width: 60px;
-            height: 60px;
+            width: 100px; 
+            height: auto;
             margin-left: 10px;
         }
         
@@ -68,7 +66,7 @@
         
         .cta-button {
             background-color: white;
-            color: var(--accent);
+            color: var(--primary);
             border: none;
             padding: 12px 24px;
             border-radius: 30px;
@@ -85,15 +83,13 @@
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-            background-color: var(--accent);
-            color: white;
         }
         
         /* Hero Section */
         .hero {
             padding: 80px 0;
             text-align: center;
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/api/placeholder/1200/600') no-repeat center;
+            background: var(--light);
             background-size: cover;
         }
         
@@ -110,24 +106,10 @@
         }
         
         .hero-cta {
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
-            background-size: 300% 300%;
+            background: var(--accent); /* Solid color */
             color: white;
             font-size: 18px;
             padding: 15px 30px;
-            animation: gradient 5s ease infinite;
-        }
-        
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
         }
         
         /* Problem Section */
@@ -162,7 +144,7 @@
         }
         
         .pain-point:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
         
         .pain-point i {
@@ -205,10 +187,7 @@
         
         .feature-card i {
             font-size: 40px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            color: var(--primary); /* Solid color instead of gradient */
             margin-bottom: 20px;
         }
         
@@ -242,9 +221,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
-            background-size: 300% 300%;
-            animation: gradient 5s ease infinite;
+            background: var(--secondary); /* Solid color */
             border-radius: 50%;
             margin-left: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -260,9 +237,7 @@
         .cta-section {
             padding: 100px 0;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
-            background-size: 300% 300%;
-            animation: gradient 8s ease infinite;
+            background: var(--accent); /* Solid color */
             color: white;
         }
         
@@ -279,7 +254,7 @@
         
         .cta-white {
             background-color: white;
-            color: var(--primary);
+            color: var(--accent);
             font-size: 18px;
             padding: 15px 30px;
             margin: 0 10px;
@@ -311,10 +286,7 @@
         
         .contact-method i {
             font-size: 40px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--accent2));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            color: var(--primary); /* Solid color */
             margin-bottom: 20px;
         }
         
@@ -426,7 +398,7 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48c3R5bGU+LnN0MHtmaWxsOiMzOEI0NDk7fS5zdDF7ZmlsbDojMzBCOEM0O30uc3Qye2ZpbGw6I0U3M0E5NTt9LnN0M3tmaWxsOiNGNzk0MUQ7fS5zdDR7ZmlsbDojMDAwMDAwO30uc3Q1e2ZpbGw6IzUzNTM1Mzt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTAgNjVMODAgMTYwTDExMCAxMDBMODAgNDBMNTAgNjV6Ii8+PHBhdGggY2xhc3M9InN0MSIgZD0iTTEwMCA0MEwxMzAgMTAwTDE2MCA2MEwxMzAgMzBMMTAwIDQweiIvPjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMzAgMTAwTDE1MCAxNjBMMTgwIDEwMEwxNjAgNjBMMTMwIDEwMHoiLz48cGF0aCBjbGFzcz0ic3QzIiBkPSJNMTgwIDEwMEwyMTAgMTYwTDIwMCA0MEwxODAgMTAweiIvPjxwYXRoIGNsYXNzPSJzdDQiIGQ9Ik03MCAxODBIMTgwVjIwMEg3MFYxODB6Ii8+PHRleHQgeD0iODUiIHk9IjE5NSIgY2xhc3M9InN0NSIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbDsgZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjRweDsiPteV16LXky7Xpteo</dGV4dD48L3N2Zz4=" alt="ועד.נט לוגו" style="width: 100px; height: 100px;">
+                <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/logo.png" alt="ועד.נט לוגו">
             </div>
             <button class="cta-button">צור קשר עכשיו <i class="fas fa-arrow-left"></i></button>
         </div>
