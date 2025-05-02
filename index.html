@@ -118,14 +118,14 @@
       border-radius: 5px;
     }
 
-    .features-grid {
+    .features-grid, .pain-points {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       margin-top: 40px;
     }
 
-    .feature {
+    .feature, .pain-point {
       background-color: white;
       padding: 30px;
       border-radius: 16px;
@@ -133,19 +133,19 @@
       text-align: center;
     }
 
-    .feature i {
+    .feature i, .pain-point i {
       font-size: 40px;
       color: var(--primary);
       margin-bottom: 15px;
     }
 
-    .feature h3 {
+    .feature h3, .pain-point h3 {
       font-size: 20px;
       color: var(--dark);
       margin-bottom: 10px;
     }
 
-    .feature p {
+    .feature p, .pain-point p {
       font-size: 16px;
       color: #555;
     }
@@ -177,6 +177,44 @@
       background-color: var(--light);
     }
 
+    .contact-form {
+      max-width: 600px;
+      margin: 40px auto 0;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .contact-form button:hover {
+      background: #547a90;
+    }
+
     footer {
       background-color: #222;
       color: #eee;
@@ -198,7 +236,6 @@
       .hero h1 {
         font-size: 32px;
       }
-
       .hero p,
       .cta-section p {
         font-size: 16px;
@@ -218,35 +255,58 @@
 
   <section class="hero">
     <div class="container">
-      <h1>ניהול בתים משותפים בלי כאב ראש</h1>
-      <p>ועד.נט מספקת שירות ניהול מקצועי, שקוף ונעים לבנייני מגורים. פתרונות בהתאמה אישית לכל דייר ובניין.</p>
-      <button class="cta-button">קבלו הצעה אישית <i class="fas fa-envelope-open-text"></i></button>
+      <h1>נמאס לכם מכאב הראש בניהול ועד הבית?</h1>
+      <p>מיזם חדש ופורץ דרך בתחום ניהול בתים משותפים באמצעות וועדי בתים מקצועיים</p>
+      <button class="cta-button">קבלו הצעה אישית <i class="fas fa-file-signature"></i></button>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <h2 class="section-title">למה לבחור בנו?</h2>
+      <h2 class="section-title">למה צריך ועד.נט?</h2>
+      <div class="pain-points">
+        <div class="pain-point">
+          <i class="fas fa-clock"></i>
+          <h3>חוסר זמן</h3>
+          <p>ניהול ועד הבית דורש זמן רב - פגישות, תיאומים, מעקב אחר תשלומים, והתמודדות עם בעיות שוטפות.</p>
+        </div>
+        <div class="pain-point">
+          <i class="fas fa-book"></i>
+          <h3>חוסר ידע</h3>
+          <p>חוקים, תקנות, וניהול כספים דורשים ידע מקצועי שלרוב הדיירים אין את הזמן ללמוד.</p>
+        </div>
+        <div class="pain-point">
+          <i class="fas fa-users"></i>
+          <h3>עימותים עם שכנים</h3>
+          <p>התמודדות עם סרבני תשלום וסכסוכי שכנים יכולה להיות מתישה ולפגוע ביחסי השכנות.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">הייחודיות שלנו</h2>
       <div class="features-grid">
         <div class="feature">
           <i class="fas fa-balance-scale"></i>
           <h3>ניהול חוקי ומקצועי</h3>
-          <p>כל השירותים בהתאם לחוק - דוחות מסודרים, חוזים ותקשורת ברורה.</p>
-        </div>
-        <div class="feature">
-          <i class="fas fa-users"></i>
-          <h3>שירות אישי</h3>
-          <p>מתן יחס אישי לכל דייר תוך הקשבה ושיתוף.</p>
+          <p>ניהול ועד הבית באופן חוקי ומקצועי וללא מאמץ מצדכם.</p>
         </div>
         <div class="feature">
           <i class="fas fa-gavel"></i>
-          <h3>ליווי משפטי</h3>
-          <p>מענה מול סרבני תשלום, כולל ייצוג והגשת תביעות.</p>
+          <h3>התנהלות משפטית מלאה</h3>
+          <p>טיפול בסרבני תשלום, מכתבי התראה ותביעות משפטיות.</p>
         </div>
         <div class="feature">
-          <i class="fas fa-home"></i>
-          <h3>שקט וביטחון</h3>
-          <p>תנו לנו לנהל, ואתם תיהנו מאיכות חיים ושקט נפשי.</p>
+          <i class="fas fa-medal"></i>
+          <h3>ניסיון מוכח</h3>
+          <p>קבלת בניינים לניהול בצו שיפוטי, עבודה מול רשויות.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-search-dollar"></i>
+          <h3>שקיפות מלאה</h3>
+          <p>דו"חות תקופתיים, קבלות והסכמי התקשרות.</p>
         </div>
       </div>
     </div>
@@ -254,11 +314,20 @@
 
   <section class="cta-section">
     <div class="container">
-      <h2>רוצים שנחזור אליכם?</h2>
-      <p>השאירו פרטים או שלחו הודעה בוואטסאפ ונחזור אליכם בהקדם</p>
-      <button class="cta-button" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D', '_blank')">
-        שלחו הודעה <i class="fab fa-whatsapp"></i>
-      </button>
+      <h2>רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
+      <p>מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית</p>
+      <form class="contact-form">
+        <label for="name">שם מלא</label>
+        <input type="text" id="name" name="name" placeholder="הקלידו את שמכם" required />
+
+        <label for="email">אימייל</label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required />
+
+        <label for="message">הודעה</label>
+        <textarea id="message" name="message" rows="4" placeholder="פרטו את הבקשה שלכם" required></textarea>
+
+        <button type="submit">שליחה</button>
+      </form>
     </div>
   </section>
 
