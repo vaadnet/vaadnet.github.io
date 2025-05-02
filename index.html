@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="he">
-<head>
+<html dir="rtl" lang="he" class="no-js">
+    <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -249,7 +248,7 @@
             font-size: 22px;
             max-width: 800px;
             margin: 0 auto 50px;
-            color: #555;
+            color: #333;
             line-height: 1.7;
         }
         
@@ -754,6 +753,9 @@
             transition: all 0.3s;
             font-size: 17px;
             position: relative;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
         }
         
         .footer-links a:after {
@@ -836,6 +838,9 @@
             transition: all 0.3s ease;
             position: relative;
             padding-bottom: 5px;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
         }
         
         .nav-links a:after {
@@ -851,6 +856,50 @@
         
         .nav-links a:hover:after {
             width: 100%;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            padding: 0;
+            border: 0;
+            overflow: hidden;
+        }
+        
+        .visually-hidden:focus {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            right: auto;
+            z-index: 9999;
+            width: auto;
+            height: auto;
+            padding: 1em;
+            background: white;
+            color: black;
+            font-size: 1.1em;
+            font-weight: bold;
+            clip: auto;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 3px solid #4c956c;
+            outline-offset: 2px;
+        }
+        
+        .cta-button:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
         
         @media (max-width: 768px) {
@@ -888,21 +937,24 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link visually-hidden">דלג לתוכן העיקרי</a>
     <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/Picture1.png" alt="ועד.נט לוגו">
+                <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/Picture1.png" alt="ועד.נט לוגו - ניהול וועדי בתים מקצועי">
             </div>
+            <nav role="navigation" aria-label="ניווט ראשי">
             <div class="nav-links">
                 <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
                 <a href="#" onclick="scrollToSection('problem')">אודות</a>
                 <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
             </div>
+            </nav>
             <button class="cta-button" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D', '_blank')">צרו קשר עכשיו <i class="fas fa-arrow-left"></i></button>
         </div>
     </header>
-
+<main>
     <section class="hero">
         <div class="section-decoration top"></div>
         <div class="container">
@@ -918,7 +970,7 @@
     <section class="problem">
         <div class="section-decoration top"></div>
         <div class="container">
-            <h2 class="section-title">למה צריך ועד.נט?</h2>
+            <h2 class="section-title">למה צריך את ועד.נט?</h2>
             <p style="text-align: center; font-size: 20px; margin-bottom: 30px;">רוב הדיירים לא רוצים להתעסק בניהול ועד הבית - אנחנו כאן כדי לפתור לכם את הבעיה!</p>
             
             <div class="pain-points">
@@ -1076,23 +1128,18 @@
         </div>
         <div class="section-decoration bottom"></div>
     </section>
-
+</main>
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">ועד.נט</div>
             
-            <div class="footer-links">
+            <div class="footer-links" role="navigation" aria-label="ניווט תחתון">
                 <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
                 <a href="#" onclick="scrollToSection('problem')">אודות</a>
                 <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
             </div>
             
-            <div class="social-links">
-                <a href="https://www.facebook.com/vaadnet" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/vaadnet" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
             
             <p>&copy; 2025 ועד.נט - כל הזכויות שמורות.</p>
         </div>
