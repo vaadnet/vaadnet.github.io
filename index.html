@@ -2,19 +2,27 @@
 <html dir="rtl" lang="he" class="no-js">
     <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=5.0">    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ועד.נט - ניהול מקצועי של בתים משותפים</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c6e49;    /* Soft forest green */
-            --secondary: #4c956c;  /* Lighter green */
-            --accent: #8a5a83;     /* Muted purple */
-            --accent2: #d68c45;    /* Soft orange */
-            --light: #f6f6f6;
+            --primary: #e64186;      /* Pink */
+            --secondary: #9fcd61;    /* Green */
+            --accent: #76c8c6;       /* Teal */
+            --accent2: #f29f43;      /* Orange */
+            --light: #f8f9fa;
             --dark: #2a2a2a;
-            --text: #414141;
+            --text: #333333;
+            --text-light: #666666;
             --bg-pattern: url('https://www.transparenttextures.com/patterns/cubes.png');
+            --gradient-primary: linear-gradient(135deg, var(--primary), #d63875);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary), #8bb84d);
+            --gradient-accent: linear-gradient(135deg, var(--accent), #5fb3b1);
+            --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.08);
+            --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
         
         * {
@@ -36,7 +44,7 @@
             background-position: center;
         }
         
-        /* Additional decorative elements */
+        /* Improved overlay pattern */
         .overlay-pattern {
             position: fixed;
             top: 0;
@@ -53,63 +61,41 @@
             background-size: 20px 20px;
         }
         
-        .geometric-shape {
-            position: absolute;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .shape-circle {
-            border-radius: 50%;
-            background: var(--primary);
-        }
-        
-        .shape-square {
-            transform: rotate(45deg);
-            background: var(--secondary);
-        }
-        
-        .shape-triangle {
-            width: 0;
-            height: 0;
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-bottom: 180px solid var(--accent);
-        }
-        
-        body:before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(135deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%) -10px 0,
-                linear-gradient(225deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%) -10px 0,
-                linear-gradient(315deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%),
-                linear-gradient(45deg, rgba(44, 110, 73, 0.03) 25%, transparent 25%);
-            background-size: 20px 20px;
-        }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 9999;
+            border-radius: 4px;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
         /* Header */
         header {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%);
             color: white;
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         
         header:before {
@@ -128,6 +114,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
         }
         
         .logo {
@@ -146,23 +133,48 @@
             font-weight: bold;
         }
         
-        .cta-button {
-            background-color: white;
-            color: var(--primary);
-            border: none;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-weight: bold;
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
             font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 15px;
+            border-radius: 25px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-button {
+            background: var(--gradient-secondary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
+            box-shadow: var(--shadow-light);
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             overflow: hidden;
             position: relative;
             z-index: 1;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .cta-button:before {
@@ -172,49 +184,31 @@
             left: 0;
             width: 0;
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #8bb84d, var(--secondary));
             transition: width 0.3s ease;
             z-index: -1;
         }
         
         .cta-button:hover {
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
         }
         
         .cta-button:hover:before {
             width: 100%;
         }
         
+        /* Main content */
+        main {
+            margin-top: 80px;
+        }
+        
         .hero {
-            padding: 180px 0 140px;
+            padding: 120px 0 100px;
             text-align: center;
             position: relative;
-            background-color: rgba(255, 255, 255, 0.7);
-            margin-top: 0;
-        }
-        
-        .hero:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-pattern);
-            opacity: 0.03;
-            z-index: 0;
-        }
-        
-        .hero:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
         
         .hero .container {
@@ -223,13 +217,14 @@
         }
         
         .hero h1 {
-            font-size: 52px;
+            font-size: 42px;
             margin-bottom: 25px;
-            color: var(--primary);
+            color: var(--dark);
             font-weight: 700;
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
+            line-height: 1.2;
         }
         
         .hero h1:after {
@@ -238,65 +233,54 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: var(--gradient-secondary);
             border-radius: 2px;
         }
         
         .hero p {
-            font-size: 22px;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            color: #333;
-            line-height: 1.7;
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-weight: 400;
         }
         
         .hero-cta {
-            background: linear-gradient(90deg, var(--accent), #795378);
+            background: var(--gradient-primary);
             color: white;
-            font-size: 18px;
-            padding: 16px 32px;
-            box-shadow: 0 6px 15px rgba(138, 90, 131, 0.25);
+            font-size: 16px;
+            padding: 14px 28px;
+            box-shadow: var(--shadow-medium);
             margin: 0 auto;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .hero-cta:hover {
-            background: linear-gradient(90deg, #795378, var(--accent));
-            box-shadow: 0 8px 20px rgba(138, 90, 131, 0.35);
-            transform: translateY(-3px);
+            background: linear-gradient(135d, #d63875, var(--primary));
+            box-shadow: var(--shadow-heavy);
+            transform: translateY(-2px);
         }
         
-        /* Problem Section */
-        .problem {
-            padding: 120px 0;
-            background-color: rgba(255, 255, 255, 0.8);
+        /* Section styling */
+        .section {
+            padding: 80px 0;
             position: relative;
-            z-index: 1;
-        }
-        
-        .problem:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-        
-        .problem .container {
-            position: relative;
-            z-index: 1;
         }
         
         .section-title {
             text-align: center;
-            font-size: 38px;
+            font-size: 32px;
             margin-bottom: 50px;
-            color: var(--primary);
+            color: var(--dark);
             position: relative;
             padding-bottom: 15px;
+            font-weight: 600;
         }
         
         .section-title:after {
@@ -305,85 +289,63 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 50px;
             height: 3px;
-            background: var(--accent);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background-color: rgba(255, 255, 255, 0.8);
         }
         
         .pain-points {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
         
         .pain-point {
-            flex: 1;
-            min-width: 300px;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: white;
             padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-left: 4px solid var(--secondary);
             position: relative;
             overflow: hidden;
         }
         
-        .pain-point:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-        }
-        
         .pain-point:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
         
         .pain-point i {
-            font-size: 54px;
-            color: var(--primary);
-            margin-bottom: 25px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: block;
         }
         
         .pain-point h3 {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 15px;
-            color: #333;
+            color: var(--dark);
             font-weight: 600;
+        }
+        
+        .pain-point p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 15px;
         }
         
         /* Features Section */
         .features {
-            padding: 120px 0;
-            background-color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .features:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-        }
-        
-        .features .container {
-            position: relative;
-            z-index: 1;
+            background: linear-gradient(135deg, rgba(159, 205, 97, 0.05), rgba(118, 200, 198, 0.05));
         }
         
         .features-grid {
@@ -395,140 +357,107 @@
         
         .feature-card {
             background-color: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            padding: 35px 25px;
+            box-shadow: var(--shadow-light);
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            border-bottom: 4px solid var(--secondary);
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            overflow: hidden;
             position: relative;
         }
         
-        .feature-card:before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-        }
-        
-        .feature-card:hover:before {
-            opacity: 1;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
         
         .feature-card i {
-            font-size: 46px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 25px;
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 20px;
             display: inline-block;
         }
         
         .feature-card h3 {
-            font-size: 22px;
+            font-size: 18px;
             margin-bottom: 15px;
-            color: #333;
+            color: var(--dark);
             font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 15px;
         }
         
         /* Advantages Section */
         .advantages {
-            padding: 120px 0;
             background-color: rgba(255, 255, 255, 0.8);
-            position: relative;
-            z-index: 1;
         }
         
-        .advantages:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
-        }
-        
-        .advantages .container {
-            position: relative;
-            z-index: 1;
+        .advantages-list {
+            margin-top: 40px;
         }
         
         .advantage-item {
             display: flex;
             align-items: center;
-            margin-bottom: 40px;
-            padding: 35px;
+            margin-bottom: 25px;
+            padding: 30px;
             background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            border-right: 4px solid var(--secondary);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .advantage-item:before {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 5px;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
         
         .advantage-item:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
         }
         
         .advantage-icon {
-            font-size: 28px;
+            font-size: 24px;
             color: white;
-            min-width: 64px;
-            height: 64px;
+            min-width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--gradient-secondary);
             border-radius: 50%;
-            margin-left: 25px;
-            box-shadow: 0 6px 15px rgba(44, 110, 73, 0.2);
+            margin-left: 20px;
+            box-shadow: var(--shadow-light);
         }
         
         .advantage-content h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark);
             font-weight: 600;
+        }
+        
+        .advantage-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 15px;
         }
         
         /* CTA Section */
         .cta-section {
-            padding: 120px 0;
+            padding: 80px 0;
             text-align: center;
-            background: linear-gradient(135deg, var(--accent), #6e4968);
+            background: linear-gradient(135deg, var(--accent2), #e8913d);
             color: white;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1) inset;
         }
         
         .cta-section:before {
@@ -540,26 +469,6 @@
             height: 100%;
             background: url('https://images.unsplash.com/photo-1552034452-d9b0d28b2822?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80') center/cover;
             opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .cta-section:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(30deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
-                linear-gradient(150deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
-                linear-gradient(30deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
-                linear-gradient(150deg, rgba(0, 0, 0, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.1) 87.5%, rgba(0, 0, 0, 0.1)),
-                linear-gradient(60deg, rgba(0, 0, 0, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08)),
-                linear-gradient(60deg, rgba(0, 0, 0, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08));
-            background-size: 40px 70px;
-            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
-            opacity: 0.05;
             z-index: 0;
         }
         
@@ -581,7 +490,7 @@
         
         .cta-white {
             background-color: white;
-            color: var(--accent);
+            color: var(--accent2);
             font-size: 18px;
             padding: 16px 32px;
             margin: 0 10px;
@@ -598,117 +507,97 @@
         
         /* Contact Section */
         .contact {
-            padding: 120px 0;
             background-color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-        
-        .contact .container {
-            position: relative;
-            z-index: 1;
         }
         
         .contact-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
         
         .contact-method {
-            flex: 1;
-            max-width: 300px;
             text-align: center;
-            padding: 45px 30px;
+            padding: 35px 25px;
             background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            border-top: 4px solid var(--secondary);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-method:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
         .contact-method:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
         
         .contact-method i {
-            font-size: 42px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 15px;
             display: inline-block;
         }
         
         .contact-method h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #333;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--dark);
             font-weight: 600;
         }
         
         .contact-method p {
-            font-size: 18px;
-            color: #555;
+            font-size: 15px;
+            color: var(--text-light);
         }
         
         .contact-method a {
-            color: var(--primary);
+            color: var(--secondary);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
         
         .contact-method a:hover {
-            color: var(--accent);
+            color: var(--primary);
             text-decoration: underline;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-button {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .whatsapp-button i {
+            font-size: 20px;
         }
         
         /* Footer */
         footer {
             background-color: #1d1d1d;
             color: #fff;
-            padding: 70px 0 40px;
+            padding: 60px 0 30px;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-        
-        footer:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-pattern);
-            opacity: 0.05;
-            z-index: 0;
         }
         
         .footer-content {
@@ -736,14 +625,15 @@
             transform: translateX(-50%);
             width: 60px;
             height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--accent2), var(--primary));
         }
         
         .footer-links {
             display: flex;
-            gap: 40px;
-            margin-bottom: 35px;
+            gap: 30px;
+            margin-bottom: 30px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         .footer-links a {
@@ -751,193 +641,162 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
-            font-size: 17px;
+            font-size: 16px;
             position: relative;
-            padding: 10px;
-            margin: 5px;
-            display: inline-block;
-        }
-        
-        .footer-links a:after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+            padding: 10px 15px;
         }
         
         .footer-links a:hover {
             color: white;
         }
         
-        .footer-links a:hover:after {
-            width: 100%;
+        /* Section backgrounds for better professional look */
+        .problem {
+            background-color: #fafafa;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .social-links {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 35px;
+        .features {
+            background-color: white;
         }
         
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            font-size: 20px;
-            position: relative;
-            overflow: hidden;
+        .advantages {
+            background-color: #fafafa;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .social-links a:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 0;
+        .contact {
+            background-color: white;
         }
         
-        .social-links a i {
-            position: relative;
-            z-index: 1;
+        /* Professional typography improvements */
+        body {
+            font-size: 15px;
+            line-height: 1.6;
         }
         
-        .social-links a:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        p {
+            margin-bottom: 1em;
         }
         
-        .social-links a:hover:before {
-            opacity: 1;
+        /* Improved spacing and layout */
+        .section {
+            padding: 70px 0;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 5px;
-            padding: 10px;
-            margin: 5px;
-            display: inline-block;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: white;
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        .visually-hidden {
-            position: absolute;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            width: 1px;
-            margin: -1px;
-            padding: 0;
-            border: 0;
-            overflow: hidden;
-        }
-        
-        .visually-hidden:focus {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            right: auto;
-            z-index: 9999;
-            width: auto;
-            height: auto;
-            padding: 1em;
-            background: white;
-            color: black;
-            font-size: 1.1em;
-            font-weight: bold;
-            clip: auto;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
-        
-        a:focus, button:focus, input:focus, select:focus, textarea:focus {
-            outline: 3px solid #4c956c;
-            outline-offset: 2px;
-        }
-        
-        .cta-button:focus-visible {
-            outline: 3px solid #fff;
-            outline-offset: 2px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 text-align: center;
-            }
-            
-            .logo {
-                margin-bottom: 20px;
+                gap: 15px;
             }
             
             .nav-links {
-                margin: 10px 0 20px;
+                gap: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
             
             .hero p {
                 font-size: 18px;
             }
             
-            .contact-info {
-                flex-direction: column;
+            .section-title {
+                font-size: 28px;
             }
             
-            .contact-method {
-                max-width: 100%;
+            .pain-points {
+                grid-template-columns: 1fr;
             }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .advantage-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .advantage-icon {
+                margin: 0 0 20px 0;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 60px 0 40px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+        
+        /* Accessibility improvements */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+        
+        /* Focus styles */
+        a:focus, 
+        button:focus {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        /* Animation improvements */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link visually-hidden">דלג לתוכן העיקרי</a>
+    <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
+    
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -945,201 +804,194 @@
                 <img src="https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/Picture1.png" alt="ועד.נט לוגו - ניהול וועדי בתים מקצועי">
             </div>
             <nav role="navigation" aria-label="ניווט ראשי">
-            <div class="nav-links">
-                <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
-                <a href="#" onclick="scrollToSection('problem')">אודות</a>
-                <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
-            </div>
+                <ul class="nav-links">
+                    <li><a href="#hero">דף הבית</a></li>
+                    <li><a href="#problem">אודות</a></li>
+                    <li><a href="#contact">צור קשר</a></li>
+                </ul>
             </nav>
-            <button class="cta-button" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D', '_blank')">צרו קשר עכשיו <i class="fas fa-arrow-left"></i></button>
+            <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="cta-button">
+                צרו קשר עכשיו <i class="fas fa-arrow-left"></i>
+            </a>
         </div>
     </header>
-<main>
-    <section class="hero">
-        <div class="section-decoration top"></div>
-        <div class="container">
-            <h1>נמאס לכם מכאב הראש בניהול ועד הבית?</h1>
-            <p>מיזם חדש ופורץ דרך בתחום ניהול בתים משותפים באמצעות וועדי בתים מקצועיים</p>
-            <div style="display: flex; justify-content: center; margin-top: 50px;">
-                <button class="cta-button hero-cta">קבלו הצעת ניהול בהתאמה אישית <i class="fas fa-file-signature"></i></button>
-            </div>
-        </div>
-        <div class="section-decoration bottom"></div>
-    </section>
 
-    <section class="problem">
-        <div class="section-decoration top"></div>
-        <div class="container">
-            <h2 class="section-title">למה צריך את ועד.נט?</h2>
-            <p style="text-align: center; font-size: 20px; margin-bottom: 30px;">רוב הדיירים לא רוצים להתעסק בניהול ועד הבית - אנחנו כאן כדי לפתור לכם את הבעיה!</p>
-            
-            <div class="pain-points">
-                <div class="pain-point">
-                    <i class="fas fa-clock"></i>
-                    <h3>חוסר זמן</h3>
-                    <p>ניהול ועד הבית דורש זמן רב - פגישות, תיאומים, מעקב אחר תשלומים, והתמודדות עם בעיות שוטפות.</p>
-                </div>
-                <div class="pain-point">
-                    <i class="fas fa-book"></i>
-                    <h3>חוסר ידע</h3>
-                    <p>חוקים, תקנות, וניהול כספים דורשים ידע מקצועי שלרוב הדיירים אין את הזמן ללמוד.</p>
-                </div>
-                <div class="pain-point">
-                    <i class="fas fa-users"></i>
-                    <h3>עימותים עם שכנים</h3>
-                    <p>התמודדות עם סרבני תשלום וסכסוכי שכנים יכולה להיות מתישה ולפגוע ביחסי השכנות.</p>
+    <main id="main-content">
+        <section id="hero" class="hero section">
+            <div class="container">
+                <h1 class="fade-in">נמאס לכם מכאב הראש בניהול ועד הבית?</h1>
+                <p class="fade-in">מיזם חדש ופורץ דרך בתחום ניהול בתים משותפים באמצעות וועדי בתים מקצועיים</p>
+                <div style="display: flex; justify-content: center; margin-top: 50px;">
+                    <a href="#contact" class="cta-button hero-cta fade-in">קבלו הצעת ניהול בהתאמה אישית <i class="fas fa-file-signature"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="section-decoration bottom"></div>
-    </section>
+        </section>
 
-    <section class="features">
-        <div class="section-decoration top"></div>
-        <div class="container">
-            <h2 class="section-title">הייחודיות שלנו</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-balance-scale"></i>
-                    <h3>ניהול חוקי ומקצועי</h3>
-                    <p>ניהול ועד הבית באופן חוקי ומקצועי וללא מאמץ מצדכם.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-gavel"></i>
-                    <h3>התנהלות משפטית מלאה</h3>
-                    <p>טיפול בסרבני תשלום, מכתבי התראה ותביעות משפטיות נגד סרבני תשלום.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-medal"></i>
-                    <h3>ניסיון מוכח</h3>
-                    <p>קבלת בניינים לניהול בצו שיפוטי, ניהול שיפוץ מבנים ומבנים מסוכנים, עבודה מול רשויות.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-search-dollar"></i>
-                    <h3>שקיפות מלאה</h3>
-                    <p>ניהול תקציב, דו"חות תקופתיים, קבלות ושיתוף בהסכמי התקשרות טרם ביצוע עבודות.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-home"></i>
-                    <h3>שיפור איכות החיים</h3>
-                    <p>תחזוקה, שדרוגים וניהול פרויקטים בסטנדרט גבוה.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>ניסיון רחב באזור המרכז</h3>
-                    <p>ניהול בניינים מצפון תל אביב ועד רחובות, ניסיון בניהול פרויקטים של שיפוץ בניינים.</p>
-                </div>
-            </div>
-        </div>
-        <div class="section-decoration bottom"></div>
-    </section>
-
-    <section class="advantages">
-        <div class="section-decoration top"></div>
-        <div class="container">
-            <h2 class="section-title">היתרון היחסי שלנו מול חברות אחזקה</h2>
-            
-            <div class="advantages-list">
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <div class="advantage-content">
-                        <h3>אנחנו מחליפות את ועד הבית</h3>
-                        <p>לא עוד עימותים בין שכנים או חוסר שקיפות בניהול הכספים או ניהול לקוי.</p>
-                    </div>
-                </div>
+        <section id="problem" class="problem section">
+            <div class="container">
+                <h2 class="section-title fade-in">למה צריך את ועד.נט?</h2>
+                <p style="text-align: center; font-size: 20px; margin-bottom: 30px;" class="fade-in">רוב הדיירים לא רוצים להתעסק בניהול ועד הבית - אנחנו כאן כדי לפתור לכם את הבעיה!</p>
                 
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-file-contract"></i>
+                <div class="pain-points">
+                    <div class="pain-point fade-in">
+                        <i class="fas fa-clock"></i>
+                        <h3>חוסר זמן</h3>
+                        <p>ניהול ועד הבית דורש זמן רב - פגישות, תיאומים, מעקב אחר תשלומים, והתמודדות עם בעיות שוטפות.</p>
                     </div>
-                    <div class="advantage-content">
-                        <h3>ניהול משפטי מלא</h3>
-                        <p>טיפול מקצועי מול סרבני תשלום, כולל הגשת תביעות כספיות נגד סרבני תשלום, כולל התנהלות מול חברות ממשלתיות.</p>
+                    <div class="pain-point fade-in">
+                        <i class="fas fa-book"></i>
+                        <h3>חוסר ידע</h3>
+                        <p>חוקים, תקנות, וניהול כספים דורשים ידע מקצועי שלרוב הדיירים אין את הזמן ללמוד.</p>
                     </div>
-                </div>
-                
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="advantage-content">
-                        <h3>ניסיון כמגשרות</h3>
-                        <p>מסייע לכם ליישב מחלוקות ולנהל סכסוכי שכנים בצורה יעילה.</p>
-                    </div>
-                </div>
-                
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="advantage-content">
-                        <h3>שירות מקצועי ושקוף</h3>
-                        <p>ניהול תקציב, תשלומים, דוחו"ת כספיים וכל מה שהבניין שלכם צריך - בלי הפתעות!</p>
+                    <div class="pain-point fade-in">
+                        <i class="fas fa-users"></i>
+                        <h3>עימותים עם שכנים</h3>
+                        <p>התמודדות עם סרבני תשלום וסכסוכי שכנים יכולה להיות מתישה ולפגוע ביחסי השכנות.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section-decoration bottom"></div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
-            <p>מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית ומשתלמת!</p>
-            <button class="cta-button cta-white" onclick="window.open('https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D', '_blank')">צרו קשר עכשיו <i class="fas fa-headset"></i></button>
-        </div>
-    </section>
-
-    <section class="contact">
-        <div class="section-decoration top"></div>
-        <div class="container">
-            <h2 class="section-title">צרו קשר</h2>
-            <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">ניהול הבניין שלכם יהיה בידיים טובות</p>
-            
-            <div class="contact-info">
-                <div class="contact-method">
-                    <i class="fas fa-phone"></i>
-                    <h3>טלפון</h3>
-                    <p>רונית: <a href="tel:0505838797">050-5838797</a></p>
-                </div>
-                
-                <div class="contact-method">
-                    <i class="fas fa-envelope"></i>
-                    <h3>אימייל</h3>
-                    <p><a href="mailto:vaadnetwork@gmail.com">vaadnetwork@gmail.com</a></p>
-                </div>
-                
-                <div class="contact-method">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>אזור שירות</h3>
-                    <p>אזור המרכז - מצפון תל אביב ועד רחובות</p>
+        <section id="features" class="features section">
+            <div class="container">
+                <h2 class="section-title fade-in">הייחודיות שלנו</h2>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>ניהול חוקי ומקצועי</h3>
+                        <p>ניהול ועד הבית באופן חוקי ומקצועי וללא מאמץ מצדכם.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <i class="fas fa-gavel"></i>
+                        <h3>התנהלות משפטית מלאה</h3>
+                        <p>טיפול בסרבני תשלום, מכתבי התראה ותביעות משפטיות נגד סרבני תשלום.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <i class="fas fa-medal"></i>
+                        <h3>ניסיון מוכח</h3>
+                        <p>קבלת בניינים לניהול בצו שיפוטי, ניהול שיפוץ מבנים ומבנים מסוכנים, עבודה מול רשויות.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <i class="fas fa-search-dollar"></i>
+                        <h3>שקיפות מלאה</h3>
+                        <p>ניהול תקציב, דו"חות תקופתיים, קבלות ושיתוף בהסכמי התקשרות טרם ביצוע עבודות.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <i class="fas fa-home"></i>
+                        <h3>שיפור איכות החיים</h3>
+                        <p>תחזוקה, שדרוגים וניהול פרויקטים בסטנדרט גבוה.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>ניסיון רחב באזור המרכז</h3>
+                        <p>ניהול בניינים מצפון תל אביב ועד רחובות, ניסיון בניהול פרויקטים של שיפוץ בניינים.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div style="display: flex; justify-content: center; margin-top: 50px;">
-                <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="cta-button" style="display: inline-flex; background: linear-gradient(90deg, #25D366, #128C7E); color: white; margin: 0 auto; padding: 18px 36px; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); border-radius: 30px;">
-                    <i class="fab fa-whatsapp" style="font-size: 24px; margin-left: 15px;"></i>
-                    שלחו הודעת וואטסאפ
+        </section>
+
+        <section id="advantages" class="advantages section">
+            <div class="container">
+                <h2 class="section-title fade-in">היתרון היחסי שלנו מול חברות אחזקה</h2>
+                
+                <div class="advantages-list">
+                    <div class="advantage-item fade-in">
+                        <div class="advantage-content">
+                            <h3>אנחנו מחליפות את ועד הבית</h3>
+                            <p>לא עוד עימותים בין שכנים או חוסר שקיפות בניהול הכספים או ניהול לקוי.</p>
+                        </div>
+                        <div class="advantage-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="advantage-item fade-in">
+                        <div class="advantage-content">
+                            <h3>ניהול משפטי מלא</h3>
+                            <p>טיפול מקצועי מול סרבני תשלום, כולל הגשת תביעות כספיות נגד סרבני תשלום, כולל התנהלות מול חברות ממשלתיות.</p>
+                        </div>
+                        <div class="advantage-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="advantage-item fade-in">
+                        <div class="advantage-content">
+                            <h3>ניסיון כמגשרות</h3>
+                            <p>מסייע לכם ליישב מחלוקות ולנהל סכסוכי שכנים בצורה יעילה.</p>
+                        </div>
+                        <div class="advantage-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="advantage-item fade-in">
+                        <div class="advantage-content">
+                            <h3>שירות מקצועי ושקוף</h3>
+                            <p>ניהול תקציב, תשלומים, דוחו"ת כספיים וכל מה שהבניין שלכם צריך - בלי הפתעות!</p>
+                        </div>
+                        <div class="advantage-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section section">
+            <div class="container">
+                <h2 class="fade-in">רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
+                <p class="fade-in">מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית ומשתלמת!</p>
+                <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="cta-button cta-white fade-in">
+                    צרו קשר עכשיו <i class="fas fa-headset"></i>
                 </a>
             </div>
-        </div>
-        <div class="section-decoration bottom"></div>
-    </section>
-</main>
-    <!-- Footer -->
+        </section>
+
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section-title fade-in">צרו קשר</h2>
+                <p style="text-align: center; font-size: 18px; margin-bottom: 30px;" class="fade-in">ניהול הבניין שלכם יהיה בידיים טובות</p>
+                
+                <div class="contact-info">
+                    <div class="contact-method fade-in">
+                        <i class="fas fa-phone"></i>
+                        <h3>טלפון</h3>
+                        <p>רונית: <a href="tel:0505838797">050-5838797</a></p>
+                    </div>
+                    
+                    <div class="contact-method fade-in">
+                        <i class="fas fa-envelope"></i>
+                        <h3>אימייל</h3>
+                        <p><a href="mailto:vaadnetwork@gmail.com">vaadnetwork@gmail.com</a></p>
+                    </div>
+                    
+                    <div class="contact-method fade-in">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>אזור שירות</h3>
+                        <p>אזור המרכז - מצפון תל אביב ועד רחובות</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; margin-top: 50px;">
+                    <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="whatsapp-button fade-in">
+                        <i class="fab fa-whatsapp"></i>
+                        שלחו הודעת וואטסאפ
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">ועד.נט</div>
             
-            <div class="footer-links" role="navigation" aria-label="ניווט תחתון">
-                <a href="#" onclick="scrollToSection('hero')">דף הבית</a>
-                <a href="#" onclick="scrollToSection('problem')">אודות</a>
-                <a href="#" onclick="scrollToSection('contact')">צור קשר</a>
-            </div>
-            
+            <nav class="footer-links" role="navigation" aria-label="ניווט תחתון">
+                <a href="#hero">דף הבית</a>
+                <a href="#problem">אודות</a>
+                <a href="#contact">צור קשר</a>
+            </nav>
             
             <p>&copy; 2025 ועד.נט - כל הזכויות שמורות.</p>
         </div>
@@ -1147,65 +999,85 @@
 
     <script>
         // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
-        });
-        
-        // CTA buttons behavior
-        document.querySelectorAll('.cta-button').forEach(button => {
-            if(!button.getAttribute('onclick')) {  // Skip buttons with onclick attribute
-                button.addEventListener('click', function() {
-                    const contactSection = document.querySelector('.contact');
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Initialize fade-in animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
                 });
-            }
+            }, observerOptions);
+            
+            // Observe all fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Add loading class to body when page loads
+            document.body.classList.add('loaded');
         });
         
-        // Function to scroll to sections
-        function scrollToSection(sectionId) {
-            const section = document.querySelector('.' + sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-            return false;
+        // Parallax effect on scroll (improved performance)
+        let ticking = false;
+        
+        function updateParallax() {
+            const scrollPosition = window.pageYOffset;
+            document.body.style.backgroundPosition = 'center ' + (scrollPosition * 0.1) + 'px';
+            ticking = false;
         }
         
-        // Add a subtle parallax effect on scroll
         window.addEventListener('scroll', function() {
-            const scrollPosition = window.pageYOffset;
-            
-            // Add slight parallax effect to the background
-            document.body.style.backgroundPosition = 'center ' + (scrollPosition * 0.1) + 'px';
-            
-            // Add subtle animations on scroll
-            const elements = document.querySelectorAll('.feature-card, .pain-point, .advantage-item, .contact-method');
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if(elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
         });
         
-        // Initialize elements with initial state
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.feature-card, .pain-point, .advantage-item, .contact-method');
-            elements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            });
-            
-            // Trigger scroll event to initialize visible elements
-            window.dispatchEvent(new Event('scroll'));
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // Skip to main content with Tab key
+            if (e.key === 'Tab' && !e.shiftKey && document.activeElement === document.body) {
+                const skipLink = document.querySelector('.skip-link');
+                if (skipLink) {
+                    skipLink.focus();
+                }
+            }
+        });
+        
+        // Preload critical images
+        const criticalImages = [
+            'https://raw.githubusercontent.com/vaadnet/vaadnet.github.io/main/Picture1.png'
+        ];
+        
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
         });
     </script>
 </body>
