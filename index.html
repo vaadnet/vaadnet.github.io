@@ -490,19 +490,28 @@
         
         .cta-white {
             background-color: white;
-            color: var(--accent2);
+            color: white !important;  /* Force white text color */
+            background: var(--gradient-primary) !important;  /* Use primary gradient background */
             font-size: 18px;
             padding: 16px 32px;
             margin: 0 10px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
             border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .cta-white:hover {
-            background-color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, #d63875, var(--primary)) !important;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             transform: translateY(-4px);
+            color: white !important;  /* Ensure white text on hover */
         }
         
         /* Contact Section */
@@ -942,7 +951,7 @@
             <div class="container">
                 <h2 class="fade-in">רוצים להתנהל נכון, חוקי וללא כאבי ראש?</h2>
                 <p class="fade-in">מעוניינים בפתרון אמיתי לבניין שלכם? צרו קשר וקבלו הצעת ניהול בהתאמה אישית ומשתלמת!</p>
-                <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="cta-white-button fade-in">
+                <a href="https://wa.me/972505838797?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%A2%D7%93%20%D7%94%D7%91%D7%99%D7%AA.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D" target="_blank" class="cta-button cta-white fade-in">
                     צרו קשר עכשיו <i class="fas fa-headset"></i>
                 </a>
             </div>
